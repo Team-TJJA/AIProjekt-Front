@@ -1,25 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
 
-.smallTextArea, .bigTextArea{
-    resize: none;
-    height: 300px;
-    border-radius: 10px;
-}
-
-body{
+body {
     background-color: #474647;
-    font-family: 'Questrial', sans-serif;
 }
 
-
-button{
-    width: 100px;
-    height: 30px;
-    margin: auto;
-    grid-column: span 2;
-    border-radius: 10px;
-}
-.wrapper{
+.wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
@@ -28,16 +13,37 @@ button{
     padding-top: 10px;
 }
 
-
-.bigTextArea, .bigHeader{
+.big_textarea, .big_header {
     grid-column: span 2;
-    font-family: 'Questrial', sans-serif;
 }
 
-.smallHeader, .bigHeader{
+textarea {
+    resize: none;
+    height: 300px;
+    border-radius: 10px;
+    font-family: Calibri, sans-serif;
+    font-size: 18px;
+}
+
+#ansøgings_form {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-template-columns: 1fr 1fr;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    margin: auto;
+    grid-column: span 2;
+    border-radius: 10px;
+}
+
+
+.small_header, .big_header {
     text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     color: white;
-    font-family: 'Questrial', sans-serif;
+    font-family: 'Nova Square', sans-serif;
 }
 
