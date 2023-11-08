@@ -1,5 +1,6 @@
-const CV = document.getElementById("cv");
-const Jobannonce = document.getElementById("jobannonce");
+const Resume = document.getElementById("resume");
+const JobAdd = document.getElementById("job_add");
+const Application = document.getElementById("application");
 
 
 document.addEventListener('DOMContentLoaded', createFormEventListener);
@@ -7,7 +8,7 @@ document.addEventListener('DOMContentLoaded', createFormEventListener);
 let form;
 
 function createFormEventListener() {
-    form = document.getElementById('ansøgnings_form');
+    form = document.getElementById('application_form');
     form.addEventListener('submit', handleSubmitForm);
 }
 
@@ -24,30 +25,25 @@ async function handleSubmitForm(event) {
 }
 
 async function postAndPutFormDataAsJson(url, formData) {
-    const plainFormData = Object.fromEntries(formData.entries());
-    plainFormData.cv = CV.value;
-    plainFormData.jobannonce = Jobannonce.value;
+    const formDataAsObject = Object.fromEntries(formData.entries());
+    formDataAsObject.resume = Resume.value;
+    formDataAsObject.jobAdd = JobAdd.value;
     let response;
 
-    response = await postOrPutObjectAsJson(url, plainFormData);
+    response = await postOrPutObjectAsJson(url, formDataAsObject);
     if (response.ok) {
+        const data = await response.json();
+        Application.value = data['answer'];
         alert('Application generated');
     }
 }
 
 async function postOrPutObjectAsJson(url, object) {
-    const objectToJsonString = JSON.stringify(object);
     const fetchOption = {
+        method: 'Post',
         headers: {'Content-type': 'application/json'},
-        body: objectToJsonString
+        body: JSON.stringify(object)
     }
     const response = await fetch(url, fetchOption);
     return response;
-}
-
-
-async function fetchAnyData(url) {
-    const response = await fetch(url);
-    const jsonFormat = await response.json();
-    return jsonFormat;
 }

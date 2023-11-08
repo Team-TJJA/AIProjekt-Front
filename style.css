@@ -25,7 +25,7 @@ textarea {
     font-size: 18px;
 }
 
-#ansøgnings_form {
+#application_form {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-template-columns: 1fr 1fr;
